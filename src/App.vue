@@ -1,30 +1,25 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+  <a-button type="primary" @click="getForm" style="cursor: pointer; margin-bottom: 20px">
+    submit（点击拿到表单树形数据）
+  </a-button>
+  <ConditionsRoom ref="ConditionsRef" />
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<script>
+  import { defineComponent, ref } from 'vue'
+  import ConditionsRoom from '@/components/conditions/index.vue'
+  export default defineComponent({
+    components: { ConditionsRoom },
+    setup() {
+      const ConditionsRef = ref()
+      const getForm = () => {
+        const res = ConditionsRef.value.resolveTreeForm()
+        console.log('🚀 ~ file: App.vue ~ line 18 ~ getForm ~ res', res)
+      }
+      return {
+        ConditionsRef,
+        getForm,
+      }
+    },
+  })
+</script>
