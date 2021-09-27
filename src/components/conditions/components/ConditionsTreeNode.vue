@@ -26,8 +26,8 @@
     </div>
     <div class="base">
       <ConditionsCopy
-        v-for="(v, i) in Grops"
-        :key="i + `${Math.random()}`"
+        v-for="v in Grops"
+        :key="v.id"
         :selects="selects"
         v-model:Type="v.type"
         v-model:Keys="v.keys"

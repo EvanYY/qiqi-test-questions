@@ -2,9 +2,9 @@
   <div style="width: 100%" v-for="(v, i) in treeList" :key="i">
     <Conditions
       :selects="selects"
-      v-model:Type="treeList[i].type"
-      v-model:Keys="treeList[i].keys"
-      v-model:Grops="treeList[i].grops"
+      v-model:Type="v.type"
+      v-model:Keys="v.keys"
+      v-model:Grops="v.grops"
     />
   </div>
 </template>
